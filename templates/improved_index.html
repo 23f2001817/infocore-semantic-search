@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captcha Solver - Interactive</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #f8fafc;
+            color: #111;
+        }
+        h1 {
+            color: #0f172a;
+        }
+        img {
+            margin: 1em;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            max-width: 90%;
+        }
+        #solved-text {
+            font-weight: bold;
+            color: #065f46;
+            background: #dcfce7;
+            padding: 10px 20px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Captcha Solver</h1>
+    <img id="captcha-img" alt="Captcha" />
+    <p id="solved-text">Solving captcha...</p>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const imageUrl = params.get('url') || 'https://example.com/sample.png';
+        const solvedText = "Solved: [simulated text]";
+        document.getElementById('captcha-img').src = imageUrl;
+        document.getElementById('solved-text').textContent = solvedText;
+        console.log("Captcha image URL:", imageUrl);
+    </script>
+</body>
+</html>
